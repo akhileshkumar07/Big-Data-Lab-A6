@@ -22,6 +22,8 @@ def train_model():
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     history = model.fit(x_train, y_train, epochs=15, validation_data=(x_test, y_test))
     model.save("mnist_model.keras")
+    print('train_accuracy: ', history.history['accuracy'][-1])
+    print('validation_accuracy: ', history.history['val_accuracy'][-1])
 
 if __name__ == "__main__":
     train_model()
